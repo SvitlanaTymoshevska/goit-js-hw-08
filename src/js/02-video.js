@@ -5,7 +5,8 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
 player.on('timeupdate', throttle(getCurrentTime, 1000));
-window.addEventListener('load', setCurrentTime);
+
+setCurrentTime();
 
 function getCurrentTime() {
     player.getCurrentTime().then(function (seconds) {
