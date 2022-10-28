@@ -20,7 +20,7 @@ function onFormFieldsInput(e) {
 
 function onFormSubmit(e) {
     e.preventDefault();
-    
+
     const sentFormData = formDate;
     console.log(sentFormData);
     
@@ -29,10 +29,10 @@ function onFormSubmit(e) {
 }
 
 function populateFormFields() {
-    const formFieldsDate = JSON.parse(localStorage.getItem('feedback-form-state'));
+    const formFieldsDate = localStorage.getItem('feedback-form-state');
 
     if (formFieldsDate) {
-        refs.email.value = formFieldsDate.email;
-        refs.message.value = formFieldsDate.message;
+        refs.email.value = JSON.parse(formFieldsDate.email);
+        refs.message.value = JSON.parse(formFieldsDate.message);
     }
 }
